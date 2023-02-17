@@ -1,0 +1,80 @@
+<?php
+/**
+ * The template for displaying author archive pages.
+ *
+ * @package WordPress
+ * @subpackage IEEE DCI
+ * @since IEEE DCI 1.0
+ */
+get_header();
+$theme_chooser = get_theme_mod( 'ieee-dci_theme_chooser' );
+?>
+
+<?php //start .container ?>
+<div class="container">
+	<div class="row">
+    	<div class="col-lg-12">   
+        	<header class="article-header">
+            	<?php if (!is_front_page() && $theme_chooser['style_breadcrumbs'] == 'yes' && function_exists('yoast_breadcrumb')) { ?>
+                    <div class="row">
+                        <div class="col-lg-12"><?php yoast_breadcrumb( '<div id="breadcrumbs">','</div>'); ?></div>
+                    </div>
+                <?php } ?> 
+                <?php 
+				global $post;
+                $author_id = $post->post_author;
+				?>
+                <h1 class="archive-title page-title" itemprop="headline">
+                    <span><?php _e("Posts By:", "ieee-dci"); ?></span> <?php echo get_the_author_meta('display_name', $author_id); ?>
+                </h1>
+            </header>     
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<?php //start article ?>
+                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting"> 
+                    <div class="entry-content">
+                        <header class="article-header">            
+                            <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>            
+                        </header> 
+                        <section class="entry-content clearfix">  
+                            <?php the_excerpt(); ?> 
+                        </section>
+                        <footer class="article-footer">
+                            <p class="tags"><?php the_tags('<span class="tags-title">' . __('Tags:', 'ieee-dci') . '</span> ', ', ', ''); ?></p>
+                        </footer>
+                        <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'ieee-dci' ), 'after' => '</div>' ) ); ?>
+                        <?php //edit_post_link( __( 'Edit', 'ieee-dci' ), '<span class="edit-link">', '</span>' ); ?>
+                    </div>  
+                    <?php //comments_template( '', true ); ?>	
+                </article>
+                <?php //end article ?>		
+                <?php endwhile; ?>			
+                 <?php if(function_exists('wp_pagenavi')) { // if PageNavi is activated ?>  
+					<?php wp_pagenavi(); // Use PageNavi ?>                  
+                <?php } else { // Otherwise, use traditional Navigation ?>		
+                    <?php
+					// Previous/next page navigation.
+					the_posts_pagination( array(
+						'prev_text'          => __( 'Previous', 'ieee-dci' ),
+						'next_text'          => __( 'Next', 'ieee-dci' ),
+						'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( '', 'ieee-dci' ) . ' </span>',
+					) );
+					?>
+                <?php } ?>
+            <?php else : ?>
+				<?php //start article ?>    
+                <article id="post-not-found" role="article" >
+                    <header class="article-header">
+                        <h2><?php _e("Oops, Post Not Found!", "ieee-dci"); ?></h2>
+                    </header>
+                    <section class="entry-content">
+                        <p><?php _e("Uh Oh. Something is missing. Try double checking things.", "ieee-dci"); ?></p>
+                    </section>
+                </article>  
+                <?php //end article ?>  
+            <?php endif; ?>
+        </div>
+   </div>
+</div>
+<?php //end .container ?>
+
+<?php get_footer(); ?>

@@ -1,0 +1,444 @@
+/* =============================================================================
+   Primary Styles
+   Author: Steve Ambielli
+   ========================================================================== */
+
+/* =============================================================================
+   LESS Variables
+   ========================================================================== */
+@white: #fff;
+@black: #000;
+@blue: #006699;
+@green: #00803d;
+@midnight: #002351;
+@magenta: #7f2c82;
+@turquoise: #007175;
+@red: #922842;
+@yellow: #FFCC33;
+@orange: #D54308;
+@green: #67bc2f;
+@darkGreen: #00803d; 
+
+@primary: @midnight;
+
+@font: 'Open Sans', sans-serif;
+@fontCondensed: 'Open Sans Condensed', sans-serif;
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+#page {
+	h3 {		
+		&.boxed {
+			border-top: 1px solid fade(@primary, 10%) !important;
+			
+			span {
+				border: 1px solid @primary;
+				color: @primary !important;
+			}
+		}
+	}
+	
+	a {
+		color: fade(@primary, 100%) !important;
+		
+		&:hover, &:visited, &:active {
+			color: fade(@primary, 100%) !important;
+		}
+	}
+	
+	.primary {
+		color: @primary;	
+	}
+}
+
+/* =============================================================================
+   Icons
+   ========================================================================== */
+#page {	
+	.vc_icon_element-icon {
+		color: @primary !important;	
+	}
+}
+
+/* =============================================================================
+   Buttons
+   ========================================================================== */
+#page {
+	.btn {		
+		&.btn-primary {
+			background: @primary !important;
+			border: 1px solid @primary !important;
+			box-shadow: 0 4px 12px 0 fade(@primary, 25%) !important;
+		}
+	}
+}
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+#page {	
+	.form-control {
+		box-shadow: inset 0 3px 0 0 fade(@primary, 20%);
+		
+		&:active, &:focus {
+			border: 1px solid @primary;	
+		}
+	}
+}
+
+/* =============================================================================
+   Search
+   ========================================================================== */ 
+body.search #page {
+	.gradient {
+		background: linear-gradient(180deg, fade(@white, 0%) 0%, fade(@primary, 2%) 100%);
+		border-bottom: 1px solid fade(@primary, 10%);
+	}
+}
+
+/* =============================================================================
+   Tag
+   ========================================================================== */ 
+body.tag #page {
+	.gradient {
+		background: linear-gradient(180deg, fade(@white, 0%) 0%, fade(@primary, 2%) 100%);
+		border-bottom: 1px solid fade(@primary, 10%);
+	}
+}
+
+/* =============================================================================
+   Tabs
+   ========================================================================== */ 
+#page {
+	ul.vc_tta-tabs-list {
+		li.vc_tta-tab {
+			border-bottom: 1px solid fade(@primary, 20%) !important;
+			
+			&.vc_active {
+				border-bottom: 1px solid fade(@primary, 100%) !important;
+			}
+		}
+	}
+}
+
+/* =============================================================================
+   Layout
+   ========================================================================== */ 
+#page {	
+	.gradient .vc_column-inner .wpb_wrapper  {
+		background: linear-gradient(180deg, fade(@white, 0%) 0%, fade(@primary, 2%) 100%);
+		border-bottom: 1px solid fade(@primary, 10%);			
+	}
+	
+	.gradient .wpb_wrapper  {
+		ul {			 
+			li {
+				background: linear-gradient(180deg, fade(@white, 0%) 0%, fade(@primary, 2%) 100%);
+				border-bottom: 1px solid fade(@primary, 10%);	
+				color: @primary;
+				
+				a {
+					color: @primary;	
+				}
+			}
+		}
+	}
+	
+	.social-share {		
+		a {
+			box-shadow: 0 4px 12px 0 fade(@primary, 10%);
+		}
+	}
+	
+	.subnav {
+		ul {			
+			li {
+				background: linear-gradient(180deg, fade(@white, 0%) 0%, fade(@primary, 2%) 100%);
+				border-bottom: 1px solid fade(@primary, 10%);
+			}
+		}
+	}
+	
+	.border-top {
+		border-top: 1px solid fade(@primary,20%);
+	}
+	
+	.border-bottom {
+		border-bottom: 1px solid fade(@primary,20%);
+	}
+	
+	.border-left {
+		border-left: 1px solid fade(@primary,20%);	
+	}
+	
+	.border-right {
+		border-right: 1px solid fade(@primary,20%);	
+	}
+	
+	/* slideshow */
+	.slideshow {			
+		.slide {			
+			&.white {
+				.content {
+					&.overlay {
+						background-color: fade(@primary, 75%);
+					}
+					
+					.btn {
+						color: @primary !important;	
+					}
+				}
+			}
+		}
+	}
+	
+	/* recent posts */
+	.posts {		
+		ul {			
+			&.simple {
+				li {
+					background: linear-gradient(180deg, rgba(255,255,255,0) 0%, fade(@primary, 2%) 100%);
+					border-bottom: 1px solid fade(@primary, 10%);
+					
+					a {
+						color: @primary;
+					}
+				}
+			}
+			
+			&.tiled {
+				li {
+					div.featured-image {						
+						ul.tags {							
+							li {								
+								a {
+									background: fade(@primary, 20%);
+								}
+							}								
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	/* promoted */
+	.promoted {
+		&.overlay {
+			background-color: fade(@primary, 80%);
+		}
+	}
+	
+	/* events */
+	.recent-events {		
+		ul.events {
+			li {
+				background: linear-gradient(180deg, fade(@white, 0%) 0%, fade(@primary, 2%) 100%);
+				border-bottom: 1px solid fade(@primary, 10%);
+				
+				i {
+					color: @primary;	
+				}
+			}
+		}
+	}
+	
+	#tribe-bar-form .tribe-bar-submit input[type="submit"] {
+		color: @primary !important;
+		border: 1px solid @primary !important;
+		background: linear-gradient(180deg, fade(@primary, 0%) 0%, fade(@primary, 10%) 100%) !important;
+		box-shadow: 0 4px 12px 0 fade(@primary, 25%) !important;
+	}
+	
+	.tribe-events-list .type-tribe_events {
+		background: linear-gradient(180deg, rgba(255,255,255,0) 0%, fade(@primary, 2%) 100%);
+		border-bottom: 1px solid fade(@primary, 10%);		
+	}
+	
+	.tribe-events-button {		
+		&.tribe-events-ical {
+			border: 1px solid @primary !important;
+			/*background: linear-gradient(180deg, fade(@primary, 0%) 0%, fade(@primary, 10%) 100%) !important;
+			background-color: @white !important;*/
+			background: @primary !important;
+			box-shadow: 0 4px 12px 0 fade(@primary, 25%) !important;	
+		}
+	}
+}
+/* =============================================================================
+   Header
+   ========================================================================== */
+header#header {	
+	#meta-nav {
+		background-color: fade(@primary, 10%); ;
+		box-shadow: inset 0 -1px 0 0 fade(@primary, 100%);
+		
+		ul {			
+			li {				
+				a {
+					color: @primary;
+				}
+			}
+		}
+	}
+	
+	#logo-search {		
+		#search {			
+			.row.search-block {				
+				i {
+					color: fade(@primary, 100%);	
+				}
+			}
+			
+			form.search-form {				
+				.btn {					
+					i {
+						color: fade(@primary, 100%);	
+					}
+				}
+			}
+			
+			a#logo-ieee {				
+				img {
+					border-left: 1px solid fade(@primary, 25%);
+				}
+			}
+		}
+	}
+	
+	#main-nav {
+		background-color: fade(@primary, 100%);
+		/*box-shadow: 0 8px 12px 0 fade(@primary, 20%);*/
+		
+		ul {
+			li {
+				ul.sub-menu {
+					background-color: @primary; 
+					
+					li {
+						a {
+							background-color: @primary; 
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*midnight only*/
+body.style-a, body.style-b, body.style-c {
+	header#header {
+		background-color: @primary;
+		
+		#meta-nav {
+			background: @white;	
+		}
+		
+		#logo-search {
+			#logo {
+				a {
+					color: @white !important;	
+				}
+			}
+			
+			#search {
+				.row.search-block {
+					button#toggle-search {
+						i {
+							color: @white;	
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* =============================================================================
+   Home
+   ========================================================================== */
+
+/* =============================================================================
+   Footer
+   ========================================================================== */
+footer#colophon {
+	background-color: fade(@primary, 100%);	
+	
+	#join-btn-footer {
+		.btn {
+			color: @primary !important;
+		}
+	}
+}
+
+/* =============================================================================
+   Media Queries
+   ========================================================================== */
+@media only screen and (max-width: 1199px) {
+}
+
+@media only screen and (max-width: 991px) {
+	header#header {		
+		#logo-search {
+			box-shadow: 0 1px 0 0 @primary;
+			
+			#search {				
+				.search-form {					
+					#search-form {
+						box-shadow: 0 6px 18px 0 fade(@primary, 20%), 0 1px 0 0 @primary;
+					}
+				}
+			}
+			
+			#mobile-menu {
+				color: fade(@primary, 100%);
+			}
+			
+			#mobile-search {
+				color: fade(@primary, 100%);
+			}
+		}
+		
+		#main-nav {			
+			button.close-menu {				
+				i {
+					color: @primary;
+				}
+			} 
+			
+			ul {
+				border-top: 1px solid fade(@primary, 20%);
+				
+				li {
+					border-bottom: 1px solid fade(@primary, 20%);
+					
+					&:before {
+						color: @primary;
+					}
+					
+					a {
+						color: @primary !important;	
+					}
+					
+					ul.sub-menu {
+						li {
+							background: @primary;
+						}
+					}
+				}
+			}
+			
+			#social-links-mobile {
+				border-top: 1px solid fade(@primary, 20%);
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+}
+
+@media only screen and (max-width: 420px) {
+}
